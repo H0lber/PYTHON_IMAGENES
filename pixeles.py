@@ -1,7 +1,7 @@
 import cv2
 from matplotlib import pyplot as plt
 
-img = cv2.imread('si.jpeg',0)
+img = cv2.imread('si2.jpg',0)
 img2 = img.copy()
 
 (row, col) = img.shape
