@@ -23,23 +23,30 @@ for i in range(row):
         img3[i][j] = ((img2[i][j] - f_min) / (f_max - f_min)) * 256
 
 
-fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(8, 8))
+fig, axs = plt.subplots(nrows=3, ncols=2, figsize=(8, 8))
 
 
 axs[0][0].imshow(img, cmap="gray")
 axs[0][0].axis("off")
 
-
 axs[0][1].hist(img.ravel(), 256, [0, 256], color='gray')
 axs[0][1].set_title('Histograma de la imagen original')
 
 
-axs[1][0].imshow(img3, cmap="gray")
+axs[1][0].imshow(img2, cmap="gray")
 axs[1][0].axis("off")
 
+axs[1][1].hist(img2.ravel(), 256, [0, 256], color='gray')
+axs[1][1].set_title('Histograma de la imagen sin estirar')
 
-axs[1][1].hist(img3.ravel(), 256, [0, 256], color='gray')
-axs[1][1].set_title('Histograma de la imagen normalizada')
+
+
+axs[2][0].imshow(img3, cmap="gray")
+axs[2][0].axis("off")
+
+axs[2][1].hist(img3.ravel(), 256, [0, 256], color='gray')
+axs[2][1].set_title('Histograma de la imagen normalizada')
+
 
 
 plt.show()
