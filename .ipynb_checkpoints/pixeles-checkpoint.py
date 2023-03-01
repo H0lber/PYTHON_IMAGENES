@@ -7,7 +7,6 @@ img2 = img.copy()
 
 
 (row, col) = img.shape
-
 for i in range(row):
     for j in range(col):
         if (img[i][j] < 10):
