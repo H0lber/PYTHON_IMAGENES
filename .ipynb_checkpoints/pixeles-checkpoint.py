@@ -4,9 +4,11 @@ from matplotlib import pyplot as plt
 
 img = cv2.imread('yeah.jpg', 0)
 img2 = img.copy()
+img4=img1.copy()
 
 
 (row, col) = img.shape
+
 for i in range(row):
     for j in range(col):
         if (img[i][j] < 10):
@@ -22,8 +24,12 @@ for i in range(row):
     for j in range(col):
         img3[i][j] = ((img2[i][j] - f_min) / (f_max - f_min)) * 256
 
+        
+img4=cv2.filter2D(gris,-1,edge_kernel)
+    edge_kernel=nparray([[-1,-1,-1],[-1,8,-1],[-1,-1,-1]])
 
-fig, axs = plt.subplots(nrows=3, ncols=2, figsize=(8, 8))
+        
+fig, axs = plt.subplots(nrows=4, ncols=2, figsize=(8, 8))
 
 
 axs[0][0].imshow(img, cmap="gray")
@@ -46,6 +52,12 @@ axs[2][0].axis("off")
 
 axs[2][1].hist(img3.ravel(), 256, [0, 256], color='gray')
 axs[2][1].set_title('Histograma de la imagen normalizada')
+
+axs[3][0].imshow(img3, cmap="gray")
+axs[3][0].axis("off")
+
+axs[3][1].hist(img4.ravel(), 256, [0, 256], color='gray')
+axs[3][1].set_title('Histograma de la imagen normalizada')
 
 
 
