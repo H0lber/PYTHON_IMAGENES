@@ -28,6 +28,7 @@ img4 = cv2.filter2D(img3, -1, edge_kernel)
 
 fig, axs = plt.subplots(nrows=4, ncols=2, figsize=(8, 10))
 
+
 axs[0][0].imshow(img, cmap="gray")
 axs[0][0].axis("off")
 
