@@ -36,9 +36,9 @@ etiquetas_imagenes = np.array(etiquetas_imagenes)
 
 modelo = tf.keras.Sequential([
     tf.keras.layers.Flatten(input_shape=(28, 28)), # Capa de entrada que aplana las imágenes de 28x28 píxeles a un vector de 784 elementos
-    tf.keras.layers.Dense(2000, activation='relu'), # Capa oculta con 128 neuronas y función de activación ReLU
-    tf.keras.layers.Dense(1500, activation='relu'), # Capa oculta con 128 neuronas y función de activación ReLU
-    tf.keras.layers.Dense(1116, activation='relu'), # Capa oculta con 128 neuronas y función de activación ReLU
+    tf.keras.layers.Dense(1545, activation='relu'), # Capa oculta con 128 neuronas y función de activación ReLU
+
+
 
 
 
@@ -57,14 +57,13 @@ modelo.compile(optimizer='adam',
               metrics=['accuracy'])
 
 # Ajustar el modelo a las imágenes de entrenamiento
-modelo.fit(imagenes, etiquetas_imagenes, epochs=25)
+modelo.fit(imagenes, etiquetas_imagenes, epochs=10)
 
 resultado = modelo.evaluate(imagenes, etiquetas_imagenes)
 print('Pérdida en el conjunto de prueba:', resultado[0])
 print('Precisión en el conjunto de prueba:', resultado[1])
-
 print('Real: 1')
-img_nueva = cv2.imread("1-2prueba.jpg", 0)
+img_nueva = cv2.imread("1prueba.jpg", 0)
 
 # Redimensionar la imagen a 28x28 píxeles
 img_nueva = cv2.resize(img_nueva, (28, 28))
@@ -146,9 +145,9 @@ numero_predicho = np.argmax(prediccion)
 print('El número predicho es:', numero_predicho)
 
 
-print('Real: 7')
+print('Real: 9')
 
-img_nueva = cv2.imread("7-3prueba.jpg", cv2.IMREAD_GRAYSCALE)
+img_nueva = cv2.imread("9-3prueba.jpg", cv2.IMREAD_GRAYSCALE)
 img_nueva = cv2.bitwise_not(img_nueva)
 
 # Redimensionar la imagen a 28x28 píxeles
